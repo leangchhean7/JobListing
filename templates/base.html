@@ -15,35 +15,21 @@
       <link rel="stylesheet" href="../static/styles/slideshow.css">
   </head>
   <body id="top">
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header"><a href="contact.html" id="contact-button" class="mdl-button mdl-button--fab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast mdl-shadow--4dp"><i class="material-icons">mail</i></a>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <a href="contact.html" id="contact-button" class="mdl-button mdl-button--fab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast mdl-shadow--4dp"><i class="material-icons">mail</i></a>
         <header class="mdl-layout__header mdl-layout__header--waterfall site-header">
         {% block menu %}{% endblock %}
 
       </header>
       <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font"><a class="mdl-navigation__link" href="index.html">Home</a><a class="mdl-navigation__link" href="portfolio.html">Portfolio</a><a class="mdl-navigation__link" href="about.html">About</a><a class="mdl-navigation__link" href="contact.html">Contact</a>
-        </nav>
+        {% block menu_small %}{% endblock %}
       </div>
       <main class="mdl-layout__content">
         <div class="site-contenIntroductiont">
           <div class="container"><div class="mdl-grid site-max-width">
     <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp welcome-card portfolio-card">
         <div class="">
-        <div id="slideshow" class="mdl-card__title">
-      <figure>
-        <img src="../static/img/1.png" alt="blue sea in front of an island with a palmtree">
-        <figcaption>This slideshow works at any size. Try it. </figcaption>
-      </figure>
-      <figure>
-        <img src="../static/img/2.png" alt="five red velvet cupcakes on a white plate with red harts on top of there white topping">
-        <figcaption>This picture is to show that portait is also possible</figcaption>
-      </figure>
-
-      <figure>
-        <img src="../static/img/3.png" alt="five red velvet cupcakes on a white plate with red harts on top of there white topping">
-        <figcaption>This picture is to show that portait is also possible</figcaption>
-      </figure>
-    </div>
+        {% block slideshow %}{% endblock %}
           <!--<h1>Welcome</h1>-->
         </div>
         <!--<div class="mdl-card__supporting-text">-->

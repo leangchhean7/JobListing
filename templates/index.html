@@ -10,6 +10,31 @@
         </div>
 {% endblock %}
 
+{% block menu_small %}
+        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+             <a class="mdl-navigation__link" href="{{ url_for('index') }}">Home</a>
+              <a class="mdl-navigation__link" href="{{ url_for('portfolio') }}">About us</a>
+        </nav>
+{% endblock %}
+
+{% block slideshow %}
+    <div id="slideshow" class="mdl-card__title">
+      <figure>
+        <img src="../static/img/1.png" alt="blue sea in front of an island with a palmtree">
+        <figcaption>This slideshow works at any size. Try it. </figcaption>
+      </figure>
+      <figure>
+        <img src="../static/img/2.png" alt="five red velvet cupcakes on a white plate with red harts on top of there white topping">
+        <figcaption>This picture is to show that portait is also possible</figcaption>
+      </figure>
+
+      <figure>
+        <img src="../static/img/3.png" alt="five red velvet cupcakes on a white plate with red harts on top of there white topping">
+        <figcaption>This picture is to show that portait is also possible</figcaption>
+      </figure>
+    </div>
+{% endblock %}
+
 {% block content %}
 <section class="section--center mdl-grid site-max-width">
     <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
