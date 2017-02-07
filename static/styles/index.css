@@ -1,0 +1,36 @@
+*,html{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1em;
+}
+header{
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+}
+h1{
+  padding: 20px;
+}
+span{
+  margin: auto 40px;
+  color: gray
+}
+span a{
+  color: black;
+  text-decoration: none;
+}
+span a:hover{
+  text-decoration: underline;
+}
+main{
+  margin: 40px;
+}
+h2{
+  margin-bottom: 10px;
+  border-bottom: 1px solid gray;
+  font-size: 2em;
+  font-weight: lighter;
+}
