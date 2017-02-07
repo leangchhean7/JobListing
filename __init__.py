@@ -29,7 +29,7 @@ def index():
 
 @app.route('/job_list')
 def jobList():
-    return render_template('job_list.html')
+    return render_template('job_list.html',data=getMenuDic())
 
 @app.route("/portfolio")
 def portfolio():
