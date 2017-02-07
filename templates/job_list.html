@@ -3,7 +3,7 @@
 
 {% block content %}
 <style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;margin:50px auto;width:90%;}
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;margin:10px 10px 0px 10px;width:100%;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:17px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
 .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:17px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
 .tg .tg-s6z2{text-align:center}
@@ -13,6 +13,10 @@
 .tg .tg-dzk6{background-color:#f9f9f9;text-align:center;vertical-align:top}
 .tg .tg-yw4l{vertical-align:top}
 .tg .tg-p5oz{background-color:#f9f9f9;text-align:right;vertical-align:top}
+
+.linkTable {
+    text-decoration:none:
+}
 </style>
 <!--<center>-->
 <!--<table>-->
@@ -34,37 +38,22 @@
   </tr>
   <tr>
     <td class="tg-b7b8">No</td>
-    <td class="tg-b7b8">Competition</td>
-    <td class="tg-dzk6">John</td>
-    <td class="tg-b7b8">Adam</td>
-    <td class="tg-b7b8">Robert</td>
-    <td class="tg-b7b8">Paul</td>
+    <td class="tg-b7b8">Title</td>
+    <td class="tg-dzk6">Description</td>
+    <td class="tg-b7b8">Company</td>
+    <td class="tg-b7b8">Date Post</td>
+    <td class="tg-b7b8">Deadline</td>
   </tr>
-
+{% for item in data[0] %}
     <tr>
     <td class="tg-yw4l">1</td>
-        <td class="tg-yw4l"><a href="">can't seem to generate any tables. I also don't know if this is the best way to populate a table with several fields.</a></td>
+        <td class="tg-yw4l"><a class="linkTable" href="">{{ data[1].title }}</a></td>
     <td class="tg-baqh">1:30</td>
     <td class="tg-lqy6">2:05</td>
     <td class="tg-lqy6">1:15</td>
     <td class="tg-lqy6">1:41</td>
   </tr>
+{% endfor %}
 
-  <tr>
-    <td class="tg-b7b8">2</td>
-    <td class="tg-b7b8">Running</td>
-    <td class="tg-dzk6">15:30</td>
-    <td class="tg-p5oz">14:10</td>
-    <td class="tg-p5oz">15:45</td>
-    <td class="tg-p5oz">16:00</td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">3</td>
-    <td class="tg-yw4l">Shooting</td>
-    <td class="tg-baqh">70%</td>
-    <td class="tg-lqy6">55%</td>
-    <td class="tg-lqy6">90%</td>
-    <td class="tg-lqy6">88%</td>
-  </tr>
 </table>
 {% endblock %}

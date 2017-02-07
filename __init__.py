@@ -31,8 +31,8 @@ def index():
 def jobList():
     return render_template('job_list.html',data=getMenuDic())
 
-@app.route("/portfolio")
-def portfolio():
-    return render_template('portfolio.html')
+@app.route("/admin_login")
+def adminLogin():
+    return render_template('backend/login.html')
 if __name__ == "__main__":
     app.run(debug=True)
