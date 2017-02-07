@@ -1,4 +1,5 @@
-from flask import Flask,render_template
+from flask import Flask,render_template, request,redirect,url_for,flash
+from logging import DEBUG
 app = Flask(__name__)
 
 def getMenu():
@@ -30,10 +31,36 @@ def jobList():
 @app.route('/details')
 def detailsJob():
     return render_template('detail_job.html')
+@app.route('/admin_panel')
+def adminPanel():
+    return 'adminPanel'
 
-@app.route("/admin_login")
+@app.route("/admin_login",methods=["GET","POST"])
 def adminLogin():
-    return render_template('backend/login.html')
+
+    error = ''
+    try:
+        if request.method == "POST":
+            username = request.form['username']
+            password = request.form['password']
+            if username == "admin" and password == "123":
+                app.logger.debug('user name is ' + username)
+                return redirect(url_for('adminPanel'))
+            else:
+                error = "Invalid Account Password"
+                return render_template('backend/login.html', error=error)
+
+        else:
+            return render_template('backend/login.html', error="")
+
+    except Exception as e:
+            #flash(e)
+            error = 'invalid Account'
+            return render_template('backend/login.html', error=error)
+
+
+
+
 
 @app.route('/portfolio')
 def portfolio():
