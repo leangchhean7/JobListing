@@ -74,8 +74,9 @@ def adminPanel():
 @app.route('/admin_panel/list', methods=["GET", "POST"])
 def list():
     if request.method == "GET":
+        list = Job.query.all()
         return render_template(
-            'backend/list_job.html'
+            'backend/list_job.html',jobs=list
         )
 
 @app.route('/admin_panel/add', methods=["GET", "POST"])

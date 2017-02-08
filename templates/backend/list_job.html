@@ -9,7 +9,7 @@ List | Job Listing
 	.list-job {
 	    margin-left:auto;
         margin-right:auto;
-		width:80%;
+		width:95%;
 		height:100%;
 		border:1px solid #C0C0C0;
 		border-collapse:collapse;
@@ -47,17 +47,18 @@ List | Job Listing
 	</tr>
 	</thead>
 	<tbody>
+    {% for job in jobs %}
 	<tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-        <td>&nbsp;</td>
-
+		<td>{{ job.title }}</td>
+		<td>{{ job.description }}</td>
+		<td>{{ job.category }}</td>
+		<td>{{ job.hrPhoneNumber }}</td>
+		<td>{{ job.hrEmail }}</td>
+		<td>{{ job.dateLine }}</td>
+        <td><a href="#">Edit</a> <a href="#">Delete</a></td>
 
 	</tr>
+    {% endfor %}
 	</tbody>
 </table>
 {% endblock %}
