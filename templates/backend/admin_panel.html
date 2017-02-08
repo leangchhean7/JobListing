@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/backend/view.css') }}" media="all">
+<script type="text/javascript" src="{{ url_for('static' ,filename='scripts/backend/view.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static' ,filename='scripts/backend/calendar.js') }}"></script>
+
     <style>
         #menu-bar {
   width: 95%;
@@ -154,8 +158,8 @@
 </head>
 <body>
 <ul id="menu-bar">
- <li class="active"><a href="#">Home</a></li>
- <li><a href="#">Add New Job</a></li>
+ <li class="active"><a href="{{ url_for('adminPanel') }}">Home</a></li>
+ <li><a href=" {{ url_for('add') }}">Add New Job</a></li>
  <li><a href="#">List</a></li>
  <li><a href="#">Logout</a></li>
 </ul>

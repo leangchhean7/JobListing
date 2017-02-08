@@ -1,5 +1,10 @@
 from flask import Flask,render_template, request,redirect,url_for,flash
 from logging import DEBUG
+from flask_sqlalchemy import SQLAlchemy
+import os
+
+
+
 app = Flask(__name__)
 
 def getMenu():
@@ -34,6 +39,10 @@ def detailsJob():
 @app.route('/admin_panel')
 def adminPanel():
     return render_template('backend/dashboard.html')
+
+@app.route('/admin_panel/add')
+def add():
+    return render_template('backend/add.html')
 
 @app.route("/admin_login",methods=["GET","POST"])
 def adminLogin():
