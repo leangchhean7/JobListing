@@ -71,9 +71,34 @@ def detailsJob():
 def adminPanel():
     return render_template('backend/dashboard.html')
 
-@app.route('/admin_panel/add')
+@app.route('/admin_panel/add', methods=["GET", "POST"])
 def add():
-    return render_template('backend/add.html')
+    if request.method == "GET":
+        return render_template('backend/add.html')
+    else:
+        title = request.form['title']
+        cat = request.form['category']
+        desc = request.form['description']
+        reqire = request.form['reqirement']
+        month = request.form['element_4_1']
+        day = request.form['element_4_2']
+        year = request.form['element_4_3']
+        dateLine = day + "/" + month + "/" + year
+        hrName = request.form['name']
+        hrPhone = request.form['phone']
+        hrEmail = request.form['email']
+        hrWeb = request.form['website']
+        hrAddress = request.form['address']
+
+        job = Job(title=title,cat=cat,desc=desc,reqire=reqire,dateLine=dateLine,hrName=hrName,hrPhone=hrPhone,hrEmail=hrEmail,hrWeb=hrWeb,hrAddress=hrAddress)
+        db.session.add(job)
+        db.session.commit()
+        return redirect("/admin_panel/add")
+
+
+# @app.route('/admin_panel/add/jobs/create')
+# def createJob():
+#     return 'create'
 
 @app.route("/admin_login",methods=["GET","POST"])
 def adminLogin():
