@@ -3,9 +3,40 @@ from logging import DEBUG
 from flask_sqlalchemy import SQLAlchemy
 import os
 
-
-
 app = Flask(__name__)
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.sqlite')
+db = SQLAlchemy(app)
+
+
+class Job(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(80))
+    category = db.Column(db.String(30))
+    description = db.Column(db.Text)
+    reqirement = db.Column(db.Text)
+    dateLine = db.Column(db.String(50))
+    hrName = db.Column(db.String(80))
+    hrPhoneNumber = db.Column(db.String(80))
+    hrEmail = db.Column(db.String(80))
+    hrWebSite = db.Column(db.String(80))
+    hrAddress = db.Column(db.Text)
+
+    def __init__(self, title, cat,desc,reqire,dateLine,hrName,hrPhone,hrEmail,hrWeb,hrAddress):
+        self.title = title
+        self.category = cat
+        self.description = desc
+        self.reqirement = reqire
+        self.dateLine = dateLine
+        self.hrName = hrName
+        self.hrPhoneNumber = hrPhone
+        self.hrEmail = hrEmail
+        self.hrWebSite = hrWeb
+        self.hrAddress = hrAddress
+
+
+
 
 def getMenu():
     items = []
