@@ -33,7 +33,7 @@ def detailsJob():
     return render_template('detail_job.html')
 @app.route('/admin_panel')
 def adminPanel():
-    return 'adminPanel'
+    return render_template('backend/dashboard.html')
 
 @app.route("/admin_login",methods=["GET","POST"])
 def adminLogin():
