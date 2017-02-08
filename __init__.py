@@ -71,6 +71,13 @@ def detailsJob():
 def adminPanel():
     return render_template('backend/dashboard.html')
 
+@app.route('/admin_panel/list', methods=["GET", "POST"])
+def list():
+    if request.method == "GET":
+        return render_template(
+            'backend/list_job.html'
+        )
+
 @app.route('/admin_panel/add', methods=["GET", "POST"])
 def add():
     if request.method == "GET":

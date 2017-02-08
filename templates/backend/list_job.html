@@ -1,0 +1,63 @@
+{% extends 'backend/admin_panel.html '%}
+
+{% block title %}
+List | Job Listing
+{% endblock %}
+{% block content %}
+
+<style>
+	.list-job {
+	    margin-left:auto;
+        margin-right:auto;
+		width:80%;
+		height:100%;
+		border:1px solid #C0C0C0;
+		border-collapse:collapse;
+		border-spacing:2px;
+		padding-top:30px;
+		padding:5px;
+	}
+	.list-job caption {
+		text-align:center;
+	}
+	.list-job th {
+		border:1px solid #C0C0C0;
+		padding:5px;
+		background:#F0F0F0;
+	}
+	.list-job td {
+		border:1px solid #C0C0C0;
+		text-align:center;
+		padding:5px;
+		background:#FFFFFF;
+	}
+</style>
+<table class="list-job">
+    <caption><h1>List All Job</h1></caption>
+	<thead>
+	<tr>
+        <th>Title</th>
+        <th>Description</th>
+		<th>Category</th>
+		<th>Phone</th>
+		<th>Email</th>
+		<th>DeadLine</th>
+        <th>Operation</th>
+
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+        <td>&nbsp;</td>
+
+
+	</tr>
+	</tbody>
+</table>
+{% endblock %}
