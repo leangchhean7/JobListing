@@ -8,50 +8,36 @@
 .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:17px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
 .tg .tg-s6z2{text-align:center}
 .tg .tg-baqh{text-align:center;vertical-align:top}
-.tg .tg-lqy6{text-align:right;vertical-align:top}
+.tg .tg-lqy6{text-align:center;vertical-align:top}
 .tg .tg-b7b8{background-color:#f9f9f9;vertical-align:top}
 .tg .tg-dzk6{background-color:#f9f9f9;text-align:center;vertical-align:top}
 .tg .tg-yw4l{vertical-align:top}
-.tg .tg-p5oz{background-color:#f9f9f9;text-align:right;vertical-align:top}
+.tg .tg-p5oz{background-color:#f9f9f9;text-align:center;vertical-align:top}
 
 .linkTable {
     text-decoration:none:
 }
 </style>
-<!--<center>-->
-<!--<table>-->
-<!--{% for item in data[0] %}-->
-
-<!--<TR>-->
-   <!--<TD class="c1"><IMG src="favicon.ico"></TD>-->
-   <!--<TD class="c2">{{ data[1].title }}</TD>-->
-   <!--<TD class="c3">{{data[1].url}}</TD>-->
-   <!--<TD class="c4"><SPAN>{{data[1].desc}}</SPAN></TD>-->
-   <!--<TD class="c5"><SPAN>{{data[1].imageUrl}}</SPAN></TD>-->
-<!--</TR>-->
-<!--{% endfor %}-->
-<!--</table>-->
-    <!--</center>-->
 <table class="tg">
   <tr>
     <th class="tg-baqh" colspan="6">Results</th>
   </tr>
   <tr>
-    <td class="tg-b7b8">No</td>
-    <td class="tg-b7b8">Title</td>
-    <td class="tg-dzk6">Description</td>
-    <td class="tg-b7b8">Company</td>
-    <td class="tg-b7b8">Date Post</td>
-    <td class="tg-b7b8">Deadline</td>
+    <td class="tg-dzk6">No</td>
+    <td class="tg-dzk6">Title</td>
+    <td class="tg-dzk6">Category</td>
+    <td class="tg-dzk6">Website</td>
+    <td class="tg-dzk6">Date Post</td>
+    <td class="tg-dzk6">Deadline</td>
   </tr>
-{% for item in data[0] %}
+{% for job in jobs %}
     <tr>
-    <td class="tg-yw4l">1</td>
-        <td class="tg-yw4l"><a class="linkTable" href="{{ url_for('detailsJob')}}">{{ data[1].title }}</a></td>
-    <td class="tg-baqh">1:30</td>
-    <td class="tg-lqy6">2:05</td>
-    <td class="tg-lqy6">1:15</td>
-    <td class="tg-lqy6">1:41</td>
+    <td class="tg-yw4l">{{ job.id }}</td>
+        <td class="tg-yw4l"><a class="linkTable" href="{{ url_for('detailsJob')}}">{{ job.title }}</a></td>
+    <td class="tg-baqh">{{ job.category }}</td>
+    <td class="tg-lqy6">{{ job.hrWebSite }}</td>
+    <td class="tg-lqy6"> Today </td>
+    <td class="tg-lqy6">{{ job.dateLine }}</td>
   </tr>
 {% endfor %}
 

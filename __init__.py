@@ -60,13 +60,17 @@ def getMenuDic():
 def index():
     return render_template('index.html',title="Job Listing Cambodia",jobType=getMenuDic())
 
-@app.route('/job_list')
+@app.route('/job_list',methods=["GET", "POST"])
 def jobList():
-    return render_template('job_list.html',data=getMenuDic())
+    if request.method == "GET":
+        jobs = Job.query.all()
+        return render_template('job_list.html',jobs=jobs)
 
 @app.route('/details')
 def detailsJob():
     return render_template('detail_job.html')
+
+#backend - admin panel
 @app.route('/admin_panel')
 def adminPanel():
     return render_template('backend/dashboard.html')
