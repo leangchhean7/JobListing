@@ -26,10 +26,12 @@ Add | Job Listing
 			<div>
 				<select class="element select medium" id="category" name="category">
 					<option value="" selected="selected"></option>
-					<option value="Accounting" >Accounting</option>
-					<option value="IT" >IT</option>
-					<option value="Architecture" >Architecture</option>
-					<option value="Management" >Management</option>
+					{% for type in job_category %}
+					<option value="{{ type.title }}" >{{ type.title }}</option>
+					{% endfor %}
+					<!--<option value="IT" >IT</option>-->
+					<!--<option value="Architecture" >Architecture</option>-->
+					<!--<option value="Management" >Management</option>-->
 
 				</select>
 			</div><p class="guidelines" id="guide_11"><small>Please Select Type of Job</small></p>

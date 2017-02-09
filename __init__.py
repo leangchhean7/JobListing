@@ -84,7 +84,9 @@ def getMenuDic():
 @app.route("/")
 @app.route("/index")
 def index():
+
     return render_template('index.html',title="Job Listing Cambodia",jobType=JobCategory.getAllJobType())
+
 @app.route('/job_list/',methods=["GET", "POST"])
 def jobList():
     if request.method == "GET":
@@ -131,7 +133,8 @@ def delete():
 @app.route('/admin_panel/add', methods=["GET", "POST"])
 def add():
     if request.method == "GET":
-        return render_template('backend/add.html')
+
+        return render_template('backend/add.html',job_category=JobCategory.getAllJobType())
     else:
         title = request.form['title']
         cat = request.form['category']
