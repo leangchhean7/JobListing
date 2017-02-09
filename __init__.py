@@ -114,6 +114,19 @@ def list():
         return render_template(
             'backend/list_job.html',jobs=list
         )
+#Operation
+@app.route('/admin_panel/delete')
+def delete():
+    try:
+        job_id = request.args.get('job_select', None)
+        job_to_delete = Job.query.get(job_id)
+        db.session.delete(job_to_delete)
+        db.session.commit()
+        return redirect(url_for('list'))
+    except Exception as e:
+        return redirect(url_for('list'))
+
+
 
 @app.route('/admin_panel/add', methods=["GET", "POST"])
 def add():
