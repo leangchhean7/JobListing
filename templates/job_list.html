@@ -33,7 +33,7 @@
 {% for job in jobs %}
     <tr>
     <td class="tg-yw4l">{{ job.id }}</td>
-        <td class="tg-yw4l"><a class="linkTable" href="{{ url_for('detailsJob')}}">{{ job.title }}</a></td>
+        <td class="tg-yw4l"><a class="linkTable" href="{{ url_for('detailsJob',job_select=job.id)}}">{{ job.title }}</a></td>
     <td class="tg-baqh">{{ job.category }}</td>
     <td class="tg-lqy6">{{ job.hrWebSite }}</td>
     <td class="tg-lqy6"> Today </td>

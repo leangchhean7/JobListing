@@ -44,6 +44,9 @@ class Job(db.Model):
     def getListJobWithCategory(cls,category):
         return cls.query.filter_by(category=category)
 
+    @classmethod
+    def getJobByID(cls,selected_id):
+        return cls.query.filter_by(id=selected_id).first()
 
 class JobCategory(db.Model):
         id = db.Column(db.Integer, primary_key=True)
@@ -60,10 +63,6 @@ class JobCategory(db.Model):
         @classmethod
         def getAllJobType(self):
             return JobCategory.query.all()
-
-
-
-
 
 def getMenu():
     items = []
@@ -95,13 +94,13 @@ def jobList():
             return render_template('job_list.html',jobs=jobs)
         else:
             jobs = Job.getListJobWithCategory(category=data)
-            return render_template('job_list.html',jobs=jobs)
 
+            return render_template('job_list.html',jobs=jobs)
 
 @app.route('/details')
 def detailsJob():
-    return render_template('detail_job.html')
-
+    job_id = request.args.get('job_select', None)
+    return render_template('detail_job.html',job_selected=Job.getJobByID(job_id))
 
 #backend - admin panel
 @app.route('/admin_panel')

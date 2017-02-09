@@ -4,42 +4,54 @@
 
 {% block content %}
 
-<section class="section--center mdl-grid site-max-width">
+<!--<section class="section&#45;&#45;center mdl-grid site-max-width">-->
+<section class="section--center mdl-grid site-max-width site-max-height">
   <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white  mdl-shadow--4dp">
     <i class="material-icons">play_circle_filled</i>
   </header>
   <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone  mdl-shadow--4dp">
     <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">Introduction</h2>
+        <h2 class="mdl-card__title-text">{{ job_selected.title }}</h2>
     </div>
     <div class="mdl-card__supporting-text">
-      Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.
+        <p><b>Name:</b> {{ job_selected.hrName }}    <br/> <b style="color:blue">DateLine:</b> <b style="color:red">{{ job_selected.dateLine }}</b>            .</p>
+        <p><b>Phone: </b>{{ job_selected.hrPhoneNumber }}<br/><b>Email:</b> {{ job_selected.hrEmail }}
+            <br/><b>Website:</b> {{ job_selected.hrWebSite }}</p>
+        <p><b>Address:</b> {{ job_selected.hrAddress }}</p>
+
     </div>
     <div class="mdl-card__actions  mdl-card--border">
-      <a href="#" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent">Watch Intro</a>
+      <a href="mailto:{{ job_selected.hrEmail }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent">Apply Now</a>
     </div>
   </div>
-</section>
+<!--</section>-->
 
-<section class="section--center mdl-grid site-max-width site-max-height">
+<!--<section class="section&#45;&#45;center mdl-grid site-max-width site-max-height">-->
   <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone  mdl-shadow--4dp">
     <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">Introduction</h2>
+        <h2 class="mdl-card__title-text">Job Description</h2>
     </div>
     <div class="mdl-card__supporting-text">
         <center>
-      A website[1] is a collection of related web pages, including multimedia content, typically identified with a common domain name, and published on at least one web server. A website may be accessible via a public Internet Protocol (IP) network, such as the Internet, or a private local area network (LAN), by referencing a uniform resource locator (URL) that identifies the site.
-
-Websites have many functions and can be used in various fashions; a website can be a personal website, a commercial website for a company, a government website or a non-profit organization website. Websites can be the work of an individual, a business or other organization, and are typically dedicated to a particular topic or purpose, ranging from entertainment and social networking to providing news and education. All publicly accessible websites collectively constitute the World Wide Web, while private websites, such as a company's website for its employees, are typically a part of an intranet.
-
-Web pages, which are the building blocks of websites, are documents, typically composed in plain text interspersed with formatting instructions of Hypertext Markup Language (HTML, XHTML). They may incorporate elements from other websites with suitable markup anchors. Web pages are accessed and transported with the Hypertext Transfer Protocol (HTTP), which may optionally employ encryption (HTTP Secure, HTTPS) to provide security and privacy for the user. The user's application, often a web browser, renders the page content according to its HTML markup instructions onto a display terminal.
-
-Hyperlinking between web pages conveys to the reader the site structure and guides the navigation of the site, which often starts with a home page containing a directory of the site web content. Some websites require user registration or subscription to access content. Examples of subscription websites include many business sites, parts of news websites, academic journal websites, gaming websites, file-sharing websites, message boards, web-based email, social networking websites, websites providing real-time stock market data, as well as sites providing various other services. As of 2016, end users can access websites on a range of devices, including desktop and laptop computers, tablet computers, smartphones and smart TVs.
-    </center>
+            {{ job_selected.description }}
+      </center>
     </div>
-    <div class="mdl-card__actions  mdl-card--border">
-      <a href="#" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent">Watch Intro</a>
+    <!--<div class="mdl-card__actions  mdl-card&#45;&#45;border">-->
+      <!--<a href="#" class="mdl-button mdl-button&#45;&#45;colored mdl-js-button mdl-js-ripple-effect mdl-button&#45;&#45;accent">Watch Intro</a>-->
+    <!--</div>-->
+  </div>
+    <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone  mdl-shadow--4dp">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Job Reqirement</h2>
     </div>
+    <div class="mdl-card__supporting-text">
+        <center>
+            {{ job_selected.reqirement }}
+     </center>
+    </div>
+    <!--<div class="mdl-card__actions  mdl-card&#45;&#45;border">-->
+      <!--<a href="#" class="mdl-button mdl-button&#45;&#45;colored mdl-js-button mdl-js-ripple-effect mdl-button&#45;&#45;accent">Watch Intro</a>-->
+    <!--</div>-->
   </div>
 </section>
 {% endblock %}
