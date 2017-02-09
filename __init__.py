@@ -1,4 +1,4 @@
-from flask import Flask,render_template, request,redirect,url_for,flash
+from flask import Flask,render_template, request,redirect,url_for,flash,session
 from logging import DEBUG
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -9,6 +9,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.sqlite')
 db = SQLAlchemy(app)
 
+import JobType
 
 class Job(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -35,6 +36,32 @@ class Job(db.Model):
         self.hrWebSite = hrWeb
         self.hrAddress = hrAddress
 
+    @classmethod
+    def getAllJobs(self):
+        return self.query.all()
+
+    @classmethod
+    def getListJobWithCategory(cls,category):
+        return cls.query.filter_by(category=category)
+
+
+class JobCategory(db.Model):
+        id = db.Column(db.Integer, primary_key=True)
+        title = db.Column(db.String(80))
+        description = db.Column(db.Text)
+        imagepath = db.Column(db.Text)
+
+        def __init__(self,title,desc,imagepath):
+            self.title = title
+            self.description = desc
+            self.imagepath = imagepath
+
+
+        @classmethod
+        def getAllJobType(self):
+            return JobCategory.query.all()
+
+
 
 
 
@@ -58,17 +85,23 @@ def getMenuDic():
 @app.route("/")
 @app.route("/index")
 def index():
-    return render_template('index.html',title="Job Listing Cambodia",jobType=getMenuDic())
-
-@app.route('/job_list',methods=["GET", "POST"])
+    return render_template('index.html',title="Job Listing Cambodia",jobType=JobCategory.getAllJobType())
+@app.route('/job_list/',methods=["GET", "POST"])
 def jobList():
     if request.method == "GET":
-        jobs = Job.query.all()
-        return render_template('job_list.html',jobs=jobs)
+        data = request.args.get('category_var', None)
+        if data == 'all':
+            jobs = Job.getAllJobs()
+            return render_template('job_list.html',jobs=jobs)
+        else:
+            jobs = Job.getListJobWithCategory(category=data)
+            return render_template('job_list.html',jobs=jobs)
+
 
 @app.route('/details')
 def detailsJob():
     return render_template('detail_job.html')
+
 
 #backend - admin panel
 @app.route('/admin_panel')
@@ -78,7 +111,7 @@ def adminPanel():
 @app.route('/admin_panel/list', methods=["GET", "POST"])
 def list():
     if request.method == "GET":
-        list = Job.query.all()
+        list = Job.getAllJobs()
         return render_template(
             'backend/list_job.html',jobs=list
         )
