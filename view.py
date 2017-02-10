@@ -36,7 +36,11 @@ def detailsJob():
 @app.route('/admin_panel')
 @login_required
 def adminPanel():
-    return render_template('backend/dashboard.html')
+    if User.is_active:
+        return render_template('backend/dashboard.html')
+    else:
+        return url_for('login')
+
 
 @app.route('/admin_panel/list', methods=["GET", "POST"])
 @login_required
@@ -122,33 +126,27 @@ def adminLogin():
 def login():
     if flask.request.method == 'GET':
         return render_template('backend/login.html')
-        # return '''
-        #        <form action='login' method='POST'>
-        #         <input type='text' name='email' id='email' placeholder='email'></input>
-        #         <input type='password' name='pw' id='pw' placeholder='password'></input>
-        #         <input type='submit' name='submit'></input>
-        #        </form>
-        #        '''
-
     email = flask.request.form['email']
     if flask.request.form['password'] == users[email]['password']:
         user = User()
         user.id = email
         flask_login.login_user(user)
         return flask.redirect(flask.url_for('protected'))
-
+    else:
+        return redirect(url_for('login',error="wrong password"))
+         # return render_template('login.html',error="wrong password")
     return 'Bad login'
 
 
 @app.route('/protected')
 @flask_login.login_required
 def protected():
-    return 'Logged in as: ' + flask_login.current_user.id
+    return redirect(url_for('adminPanel'))#'Logged in as: ' + flask_login.current_user.id
 
 @app.route('/logout')
 def logout():
     flask_login.logout_user()
-    return 'Logged out'
+    return render_template('backend/logout.html')
 
 
 

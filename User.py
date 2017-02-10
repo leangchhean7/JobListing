@@ -1,5 +1,6 @@
 from flask_login import login_manager
 import flask_login
+from flask import url_for
 from __init__ import login_manager
 
 #initial user
@@ -14,7 +15,6 @@ class User(flask_login.UserMixin):
         user.id = email
         return user
 
-
     @login_manager.request_loader
     def request_loader(request):
         email = request.form.get('email')
@@ -27,4 +27,4 @@ class User(flask_login.UserMixin):
 
     # @login_manager.unauthorized_handler
     # def unauthorized_handler(self):
-    #     return 'Unauthorized'
+    #     return False
