@@ -1,8 +1,11 @@
 from __init__ import app,db
 from flask import Flask, render_template, request,redirect,url_for
 from flask_login import login_required
+import flask_login
+import flask
 from JobCategory import JobCategory
 from Job import Job
+from User import users,User
 
 
 #Routing
@@ -115,12 +118,78 @@ def adminLogin():
             return render_template('backend/login.html', error=error)
 
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if flask.request.method == 'GET':
+        return render_template('backend/login.html')
+        # return '''
+        #        <form action='login' method='POST'>
+        #         <input type='text' name='email' id='email' placeholder='email'></input>
+        #         <input type='password' name='pw' id='pw' placeholder='password'></input>
+        #         <input type='submit' name='submit'></input>
+        #        </form>
+        #        '''
+
+    email = flask.request.form['email']
+    if flask.request.form['password'] == users[email]['password']:
+        user = User()
+        user.id = email
+        flask_login.login_user(user)
+        return flask.redirect(flask.url_for('protected'))
+
+    return 'Bad login'
+
+
+@app.route('/protected')
+@flask_login.login_required
+def protected():
+    return 'Logged in as: ' + flask_login.current_user.id
+
+@app.route('/logout')
+def logout():
+    flask_login.logout_user()
+    return 'Logged out'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 @app.route('/portfolio')
 def portfolio():
     return "Hello is is"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
