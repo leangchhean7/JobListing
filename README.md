@@ -66,7 +66,7 @@ Sample Project build with Python Programming language and Flask Framework for sh
 
 #### Routing:
 1. Login Admin Page: [http://127.0.0.1:5000/login](http://127.0.0.1:5000/login)
-2. Home Page: [http://127.0.0.1:5000/login](http://127.0.0.1:5000/login)
+2. Home Page: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 3. Admin Panel: [http://127.0.0.1:5000/admin_panel](http://127.0.0.1:5000/admin_panel)
 
 ## Contact Us:
