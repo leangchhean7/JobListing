@@ -1,6 +1,6 @@
 ## Job Listing
 
-This website is a sample that build  with Python Programming language with Flask Framework for show list of job advertisting (like  camhr.com).😊
+Sample Project build with Python Programming language and Flask Framework for show list of job advertisting (like  camhr.com).😊
 
 ## Basic feature of this website:
 * View All Job that Advertising on website.
@@ -66,7 +66,7 @@ This website is a sample that build  with Python Programming language with Flask
 
 #### Routing:
 1. Login Admin Page: [http://127.0.0.1:5000/login](http://127.0.0.1:5000/login)
-2. Home Page: [http://127.0.0.1:5000/login](http://127.0.0.1:5000/login)
+2. Home Page: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 3. Admin Panel: [http://127.0.0.1:5000/admin_panel](http://127.0.0.1:5000/admin_panel)
 
 ## Contact Us:
