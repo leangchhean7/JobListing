@@ -13,7 +13,7 @@ from User import users,User
 @app.route("/index")
 def index():
 
-    return render_template('index.html',title="Job Listing Cambodia",jobType=JobCategory.getAllJobType())
+    return render_template('home.html',title="Job Listing Cambodia",jobType=JobCategory.getAllJobType())
 
 @app.route('/job_list/',methods=["GET", "POST"])
 def jobList():

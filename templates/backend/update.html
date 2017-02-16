@@ -1,0 +1,127 @@
+{% extends 'backend/admin_panel.html '%}
+
+{% block title %}
+Add | Job Listing
+{% endblock %}
+{% block content %}
+<style>
+	.customform{
+		width:95%;
+		margin:auto;
+	}
+	.titleform{
+		text-align:center;
+	}
+</style>
+<img id="top" src="{{ url_for('static', filename='img/login/top.png') }}" alt="">
+<div id="form_container">
+
+	<center><h1><a>Add New Job</a></h1></center>
+	<form class="customform"  method="post" action="">
+		<div class="titleform">
+			<h2>Add New Job</h2>
+			<p>Add Your New Job Details below</p>
+		</div>
+		<ul >
+
+			<li id="li_1" >
+				<label class="description" for="element_1">Job Title </label>
+				<div>
+				<input id="title" name="title" class="form-control" type="text" maxlength="255" value=""/>
+				</div><p class="guidelines" id="guide_1"><small>Input Job Title</small></p>
+			</li>		<li id="li_11" >
+			<label class="description" for="element_11">Category </label>
+			<div>
+				<select class="form-control" id="category" name="category">
+					<option value="" selected="selected"></option>
+					{% for type in job_category %}
+					<option value="{{ type.title }}" >{{ type.title }}</option>
+					{% endfor %}
+					<!--<option value="IT" >IT</option>-->
+					<!--<option value="Architecture" >Architecture</option>-->
+					<!--<option value="Management" >Management</option>-->
+
+				</select>
+			</div><p class="guidelines" id="guide_11"><small>Please Select Type of Job</small></p>
+		</li>		<li id="li_2" >
+		<label class="description" for="element_2">Job Description </label>
+		<div>
+			<textarea id="description" name="description" class="form-control"></textarea>
+		</div><p class="guidelines" id="guide_2"><small>Write Job Description here</small></p>
+	</li>		<li id="li_3" >
+	<label class="description" for="element_3">Job Reqirement </label>
+	<div>
+		<textarea id="reqirement" name="reqirement" class="form-control"></textarea>
+	</div><p class="guidelines" id="guide_3"><small>Please Write Job Reqirement</small></p>
+</li>		<li id="li_4" >
+<label class="description" for="element_4">DeadLine </label>
+<span>
+	<input id="element_4_1" name="element_4_1" class="form-control" size="2" maxlength="2" value="" type="text">
+	<label for="element_4_1">MM</label>
+</span>
+<span>
+	<input id="element_4_2" name="element_4_2" class="form-control" size="2" maxlength="2" value="" type="text">
+	<label for="element_4_2">DD</label>
+</span>
+<span>
+	<input id="element_4_3" name="element_4_3" class="form-control" size="4" maxlength="4" value="" type="text">
+	<label for="element_4_3">YYYY</label>
+</span>
+
+<span id="calendar_4">
+	<img id="cal_img_4" class="datepicker" src="{{ url_for('static', filename='img/login/calendar.gif') }}" alt="Pick a date.">
+</span>
+<script type="text/javascript">
+	Calendar.setup({
+		inputField	 : "element_4_3",
+		baseField    : "element_4",
+		displayArea  : "calendar_4",
+		button		 : "cal_img_4",
+		ifFormat	 : "%B %e, %Y",
+		onSelect	 : selectDate
+	});
+</script>
+
+</li>		<li class="section_break">
+<h3>Contact Information for apply this job:</h3>
+<p></p>
+</li>		<li id="li_8" >
+<label class="description" for="element_8">Name </label>
+<div>
+	<input id="name" name="name" class="form-control" type="text" maxlength="255" value=""/>
+</div><p class="guidelines" id="guide_8"><small>Input Name of HR</small></p>
+</li>		<li id="li_10" >
+<label class="description" for="element_10">Phone Number </label>
+<div>
+	<input id="phone" name="phone" class="form-control" type="text" maxlength="255" value=""/>
+</div><p class="guidelines" id="guide_10"><small>Input Phone's HR.</small></p>
+</li>		<li id="li_9" >
+<label class="description" for="element_9">Email </label>
+<div>
+	<input id="email" name="email" class="form-control" type="text" maxlength="255" value=""/>
+</div>
+</li>		<li id="li_6" >
+<label class="description" for="element_6">Web Site </label>
+<div>
+	<input id="website" name="website" class="form-control" type="text" maxlength="255" value="http://"/>
+</div>
+</li>		<li id="li_7" >
+<label class="description" for="element_7">Address </label>
+<div>
+	<textarea id="address" name="address" class="form-control"></textarea>
+</div><p class="guidelines" id="guide_7"><small>Input Address Company</small></p>
+</li>
+
+<li class="buttons">
+	<input type="hidden" name="form_id" value="11238" />
+
+	<input id="saveForm" class="btn btn-success" type="submit" name="submit" value="Update" />
+</li>
+</ul>
+</form>
+<div id="footer">
+
+</div>
+</div>
+<img id="top" src="{{ url_for('static', filename='img/login/bottom.png') }}" alt="">
+{% endblock %}

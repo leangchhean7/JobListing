@@ -1,0 +1,41 @@
+{% extends 'core.html' %}
+
+
+{% block content %}
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Job Category</h1>
+            </div>
+
+            {% for item in jobType %}
+
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="{{ url_for('jobList',category_var=item.title) }}">
+                    <img class="img-responsive" src="{{ item.imagepath }}" alt="">
+                </a>
+                <h5>{{ item.title }}</h5>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Job Listing Website 2017</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+{% endblock %}

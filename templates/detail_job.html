@@ -1,57 +1,42 @@
-{% extends 'base.html' %}
+{% extends 'core.html' %}
 
 
 
 {% block content %}
+<style>
+    .custom-details-form{
+        margin:auto;
+        width:80%;
+        corner-radius:5px;
+        padding: 20px;
+        back
+    }
+</style>
+<div class="custom-details-form">
+    <address>
+  <strong>Company Address</strong><br>
+  {{ job_selected.hrAddress }}<br>
+  <abbr title="Phone">P:</abbr> {{ job_selected.hrPhoneNumber }}
+        Email: <a href="mailto:#">{{ job_selected.hrEmail }}</a><br/>
+        <b>Website:</b> {{ job_selected.hrWebSite }}</p>
+</address>
 
-<!--<section class="section&#45;&#45;center mdl-grid site-max-width">-->
-<section class="section--center mdl-grid site-max-width site-max-height">
-  <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white  mdl-shadow--4dp">
-    <i class="material-icons">play_circle_filled</i>
-  </header>
-  <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone  mdl-shadow--4dp">
-    <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">{{ job_selected.title }}</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-        <p><b>Name:</b> {{ job_selected.hrName }}    <br/> <b style="color:blue">DateLine:</b> <b style="color:red">{{ job_selected.dateLine }}</b>            .</p>
-        <p><b>Phone: </b>{{ job_selected.hrPhoneNumber }}<br/><b>Email:</b> {{ job_selected.hrEmail }}
-            <br/><b>Website:</b> {{ job_selected.hrWebSite }}</p>
-        <p><b>Address:</b> {{ job_selected.hrAddress }}</p>
+<address>
+  <strong>Title: {{ job_selected.title }}</strong>
+    <b style="color:blue">DateLine:</b> <b style="color:red">{{ job_selected.dateLine }}</b>
 
-    </div>
-    <div class="mdl-card__actions  mdl-card--border">
-      <a href="mailto:{{ job_selected.hrEmail }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent">Apply Now</a>
-    </div>
-  </div>
-<!--</section>-->
+</address>
 
-<!--<section class="section&#45;&#45;center mdl-grid site-max-width site-max-height">-->
-  <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone  mdl-shadow--4dp">
-    <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">Job Description</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-        <center>
-            {{ job_selected.description }}
-      </center>
-    </div>
-    <!--<div class="mdl-card__actions  mdl-card&#45;&#45;border">-->
-      <!--<a href="#" class="mdl-button mdl-button&#45;&#45;colored mdl-js-button mdl-js-ripple-effect mdl-button&#45;&#45;accent">Watch Intro</a>-->
-    <!--</div>-->
-  </div>
-    <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone  mdl-shadow--4dp">
-    <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">Job Reqirement</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-        <center>
-            {{ job_selected.reqirement }}
-     </center>
-    </div>
-    <!--<div class="mdl-card__actions  mdl-card&#45;&#45;border">-->
-      <!--<a href="#" class="mdl-button mdl-button&#45;&#45;colored mdl-js-button mdl-js-ripple-effect mdl-button&#45;&#45;accent">Watch Intro</a>-->
-    <!--</div>-->
-  </div>
-</section>
+
+    <h4 class="mdl-card__title-text">Job Reqirement</h4>
+    <p>{{ job_selected.reqirement }}</p>
+    <h4 class="mdl-card__title-text">Job Description</h4>
+    <p>{{ job_selected.description }}</p>
+
+</div>
+
+
+
+
+
 {% endblock %}
