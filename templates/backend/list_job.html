@@ -58,7 +58,7 @@ List | Job Listing
 		<td>{{ job.hrPhoneNumber }}</td>
 		<td>{{ job.hrEmail }}</td>
 		<td>{{ job.dateLine }}</td>
-        <td><a style="text-decoration:none" href="{{ url_for('delete',job_select=job.id)}}">Delete</a></td>
+		<td><a style="text-decoration:none" href="{{ url_for('delete',job_select=job.id)}}"><div class="btn btn-danger">Delete</div></a></td>
 
 	</tr>
     {% endfor %}
